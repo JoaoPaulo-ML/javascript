@@ -9,7 +9,25 @@ function adicionarAmigo() {
         return; 
     }
     amigos.push(nomesInseridos);
+
+    atualizarLista();
+
     document.querySelector('input').value = "";
+    
     console.log(amigos);
 }
+
+function atualizarLista() {
+    
+    let listaAmigos = document.getElementById('listaAmigos');
+
+    listaAmigos.innerHTML = "";
+
+    amigos.forEach(amigo => {
+        let li = document.createElement('li'); 
+        li.textContent = amigo; 
+        listaAmigos.appendChild(li);
+    });
+}
+
 
